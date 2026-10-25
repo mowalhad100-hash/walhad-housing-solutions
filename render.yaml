@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: walhad-housing-solutions
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: SESSION_COOKIE_SECURE
+        value: "true"
+      - key: CONTACT_EMAIL
+        sync: false
+      - key: CONTACT_PHONE
+        sync: false
+      - key: WHATSAPP_NUMBER
+        sync: false
+      - key: OFFICE_ADDRESS
+        sync: false
+      - key: FACEBOOK_URL
+        sync: false
+      - key: INSTAGRAM_URL
+        sync: false
+      - key: LINKEDIN_URL
+        sync: false
+      - key: CONTACT_WEBHOOK_URL
+        sync: false
+      - key: CONTACT_WEBHOOK_TOKEN
+        sync: false
